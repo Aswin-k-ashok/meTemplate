@@ -115,3 +115,85 @@
 	});
 
 })(jQuery);
+
+
+// form validation
+
+$("#submitform").submit((e)=>{
+	if(Per()&& mal()&& tel()){
+		
+	
+	   e.preventDefault()
+	   $.ajax({
+		   url:"https://script.google.com/macros/s/AKfycbyDMtwGM8AoMzwK54p2pD_-8xUyrHUu4OCmc-cc/exec",
+		   data:$("#submitform").serialize(),
+		   method:"post",
+		   success:function (response){
+			Swal.fire({ 
+			  html: "Form submited"  
+			});
+			   window.location.reload()
+		   },
+		   error:function (err){
+			   alert("Something Error")
+  
+		   }
+	   })
+   }else{
+	  per();
+	  mal();
+	  tel();
+   }
+   })
+  
+  function Per(){
+   var username = $('#name').val()
+   var pattern=/^[a-zA-Z-()]+(\s+[-a-zA-Z- ()]+)*$/
+   if(username==""){
+	$('#peer').html("Enter The Name");
+	   return false
+   }else if(username.match(pattern)){
+	$('#peer').html("");
+	  return true
+   }
+   
+  }
+  
+  function mal(){
+   var email = $('#email').val()
+   var pattern=/^[^]+@[^]+\.[a-z]{2,3}$/
+   if(email==""){
+	$('#maal').html("Enter Valid Email");
+	  return false
+   }else if(email.match(pattern)){
+	$('#maal').html("");
+	  return true
+   }else{
+	$('#maal').html("Enter Correct Email");
+	  return false
+   }
+  
+   
+  }
+  
+  function tel(){
+   var phone =$('#phone').val()
+   var pattern=/^\d{10}$/
+   var paattern=/^[a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/
+   if(phone==""){
+	 $('#teel').html("Enter valid number");
+	  return false
+   }else if(phone.match(pattern)){
+	$('#teel').html("");
+	   return true
+   }else if(phone.match(paattern)){
+	$('#teel').html("Don't Enter Char");
+	   return false
+   }else{
+	$('#teel').html("Enter 10 Number only");
+	   return false
+   }
+  
+  
+  }
+  
