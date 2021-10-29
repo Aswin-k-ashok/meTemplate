@@ -129,10 +129,13 @@ $("#submitform").submit((e)=>{
 		   data:$("#submitform").serialize(),
 		   method:"post",
 		   success:function (response){
-			Swal.fire({ 
-			  html: "Form submited"  
-			});
-			   window.location.reload()
+// 			Swal.fire({ 
+// 			  html: "Form submited"  
+// 			});
+			   
+			   alert("form submitted");
+			   $("#submitform")[0].reset();
+// 			   window.location.reload()
 		   },
 		   error:function (err){
 			   alert("Something Error")
