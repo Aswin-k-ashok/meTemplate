@@ -124,6 +124,7 @@ $("#submitform").submit((e)=>{
 		
 	
 	   e.preventDefault()
+		if($("#submitform").valid()){
 	   $.ajax({
 		   url:"https://script.google.com/macros/s/AKfycbyDMtwGM8AoMzwK54p2pD_-8xUyrHUu4OCmc-cc/exec",
 		   data:$("#submitform").serialize(),
@@ -142,6 +143,7 @@ $("#submitform").submit((e)=>{
   
 		   }
 	   })
+		}
    }else{
 	  per();
 	  mal();
