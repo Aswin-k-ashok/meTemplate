@@ -156,7 +156,7 @@ $("#submitform").submit((e)=>{
    var username = $('#name').val()
    var pattern=/^[a-zA-Z-()]+(\s+[-a-zA-Z- ()]+)*$/
    if(username==""){
-	$('#peer').html("Enter The Name");
+	$('#peer').html("Enter a Name");
 	   return false
    }else if(username.match(pattern)){
 	$('#peer').html("");
@@ -169,7 +169,7 @@ $("#submitform").submit((e)=>{
    var email = $('#email').val()
    var pattern=/^[^]+@[^]+\.[a-z]{2,3}$/
    if(email==""){
-	$('#maal').html("Enter Valid Email");
+	$('#maal').html("Enter a Valid Email");
 	  return false
    }else if(email.match(pattern)){
 	$('#maal').html("");
