@@ -120,25 +120,31 @@
 // form validation
 
 $("#submitform").submit((e)=>{
+	e.preventDefault()
 	if(Per()&& mal()&& tel()){
 		
 	
-	   e.preventDefault()
+	   
+		
 	   $.ajax({
 		   url:"https://script.google.com/macros/s/AKfycbyDMtwGM8AoMzwK54p2pD_-8xUyrHUu4OCmc-cc/exec",
 		   data:$("#submitform").serialize(),
 		   method:"post",
 		   success:function (response){
-			Swal.fire({ 
-			  html: "Form submited"  
-			});
-			   window.location.reload()
+// 			Swal.fire({ 
+// 			  html: "Form submited"  
+// 			});
+			   
+			   alert("form submitted");
+			   $("#submitform")[0].reset();
+// 			   window.location.reload()
 		   },
 		   error:function (err){
 			   alert("Something Error")
   
 		   }
 	   })
+		
    }else{
 	  per();
 	  mal();
